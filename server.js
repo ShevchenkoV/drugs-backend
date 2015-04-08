@@ -37,6 +37,19 @@ router.route('/drugs')
     });
   });
 
+router.route('/find/:name')
+
+.get(function(req, res) {
+
+    Drugs.find({name:{ "$regex": req.params.name, "$options": "ig" }},function (err, drugs) {
+      if (err) {
+        res.send(err);
+      }
+      // show the admins in the past month
+      res.json(drugs);
+    });
+  });
+
 router.route('/drugs/:drug_id')
 
   .get(function(req, res) {
