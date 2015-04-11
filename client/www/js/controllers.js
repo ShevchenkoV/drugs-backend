@@ -1,7 +1,7 @@
 angular.module('drugs.controllers', ['drugs.services'])
 
 .controller('AppCtrl', function() {
-  
+
 })
 
 .controller('FavoritesCtrl', function($scope) {
@@ -17,10 +17,22 @@ angular.module('drugs.controllers', ['drugs.services'])
 })
 
 .controller('SearchCtrl', function($scope,SearchDataService){
+  $scope.data={
+    results:"",
+    search:"",
+    queryType:true
+  };
   $scope.search=function(){
-    SearchDataService.getQuery($scope.data.search).then(function(result){
-      $scope.data.results=result;
-      console.log(result);
-    });
+    if($scope.data.queryType){
+      SearchDataService.searchByName($scope.data.search,'name').then(function(result){
+        $scope.data.results=result;
+      });
+    }
+    else{
+      SearchDataService.searchByName($scope.data.search,'ats').then(function(result){
+        $scope.data.results=result;
+      });
+    }
   }
+
 });

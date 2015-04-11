@@ -41,20 +41,32 @@ router.route('/drugs')
     });
   });
 
-router.route('/find/:name')
+router.route('/find')
 
 .get(function(req, res) {
+  if(req.query.name){
     Drugs
-    .find({name:{ "$regex":req.params.name, "$options": "ig" }})
+    .find({name:{ "$regex":req.query.name, "$options": "ig" }})
     .limit(10)
-    .exec(function (err, drugs) {
-      if (err) {
-        res.send(err);
-      }
-      // show the admins in the past month
-      res.json(drugs);
-    });
+    .exec(response);
+  }
+  else{
+    if(req.query.ats){
+      Drugs
+      .find({ats:{ "$regex":req.query.ats, "$options": "ig" }})
+      .limit(10)
+      .exec(response);
+    }
+  }
+  
+  function response (err, drugs) {
+    if (err) {
+      res.send(err);
+    }
+    res.json(drugs);
+  }
   });
+
 
 router.route('/drugs/:drug_id')
 
