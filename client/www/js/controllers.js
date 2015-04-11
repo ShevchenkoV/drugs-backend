@@ -16,7 +16,7 @@ angular.module('drugs.controllers', ['drugs.services'])
 .controller('FavoritCtrl', function($scope, $stateParams) {
 })
 
-.controller('SearchCtrl', function($scope,SearchDataService){
+.controller('SearchCtrl', function($scope,$state,SearchDataService,DetailsService){
   $scope.data={
     results:"",
     search:"",
@@ -35,4 +35,15 @@ angular.module('drugs.controllers', ['drugs.services'])
     }
   }
 
+  $scope.details=function(item){
+    console.log(item);
+    DetailsService.save(item);
+    $state.go('app.details');
+  };
+
+})
+
+.controller('DetailsCtrl', function($scope,details) {
+  $scope.data=details;
+  console.log($scope.data);
 });

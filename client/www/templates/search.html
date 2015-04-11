@@ -18,7 +18,7 @@
 <ion-content>
 
   <ion-list can-swipe="listCanSwipe">
-    <ion-item data-ng-repeat="item in data.results">
+    <ion-item data-ng-repeat="item in data.results" data-ng-click="details(item)">
       <h2>{{item.name}}</h2>
       <p>{{item.ats4}}</p>
       <span class="item-note">{{item.country}}</span>

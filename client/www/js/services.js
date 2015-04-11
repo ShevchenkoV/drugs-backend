@@ -15,4 +15,16 @@ angular.module('drugs.services', [])
 		}
 	}
 
+})
+
+.service('DetailsService', function(){
+	return{
+		data:[],
+		save:function(item){
+			this.data=item;
+		},
+		get:function(){
+			return this.data;
+		}
+	}
 });

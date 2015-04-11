@@ -33,6 +33,20 @@ angular.module('drugs', ['ionic', 'drugs.controllers'])
       }
     }
   })
+  .state('app.details', {
+    url: "/details",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/details.html",
+        controller: 'DetailsCtrl',
+        resolve: {
+          details: function(DetailsService) {
+            return DetailsService.get();
+          }
+        }
+      }
+    }
+  })
 
   .state('app.browse', {
     url: "/browse",
