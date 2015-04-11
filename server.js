@@ -47,18 +47,18 @@ router.route('/find')
   if(req.query.name){
     Drugs
     .find({name:{ "$regex":req.query.name, "$options": "ig" }})
-    .limit(10)
+    .limit(20)
     .exec(response);
   }
   else{
     if(req.query.ats){
       Drugs
       .find({ats:{ "$regex":req.query.ats, "$options": "ig" }})
-      .limit(10)
+      .limit(20)
       .exec(response);
     }
   }
-  
+
   function response (err, drugs) {
     if (err) {
       res.send(err);
