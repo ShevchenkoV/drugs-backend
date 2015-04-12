@@ -1,26 +1,26 @@
-<ion-view view-title="Детали">
+<ion-view view-title="Аналоги">
 <ion-content>
   <div class="list card">
-  <div class="item item-body">
+  <div class="item item-body" ng-repeat="item in data">
     <h2>
-      {{data.name}}
+      {{item.name}}
     </h2>
     <p>
-      Группа: {{data.ats4}}
+      Группа: {{item.ats4}}
     </p>
     <p>
-      Страна: {{data.country}}
+      Страна: {{item.country}}
     </p>
     <p>
-      Производитель: {{data.origin}}
+      Производитель: {{item.origin}}
     </p>
     <p>
-      Цены: {{data.min}}-{{data.max}}
+      Цены: {{item.min}}-{{item.max}}
     </p>
   </div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#/app/analog/{{data.analog}}">
+    <a class="tab-item" href="#/analog/{{data.analog}}">
       <i class="icon ion-aperture"></i>
       Аналоги
     </a>

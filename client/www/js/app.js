@@ -48,6 +48,21 @@ angular.module('drugs', ['ionic', 'drugs.controllers'])
     }
   })
 
+  .state('app.analog', {
+    url: "/analog/:code",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/analog.html",
+        controller: 'AnalogCtrl',
+        resolve: {
+          analog: function($stateParams) {
+            return $stateParams.code ;
+          }
+        }
+      }
+    }
+  })
+
   .state('app.browse', {
     url: "/browse",
     views: {

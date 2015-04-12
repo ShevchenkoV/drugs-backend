@@ -47,6 +47,12 @@ angular.module('drugs.controllers', ['drugs.services','ngCordova'])
 
 })
 
+.controller('AnalogCtrl', function($scope,analog,SearchDataService) {
+  SearchDataService.searchAnalogs(analog).then(function(result){
+    $scope.data=result;
+  });
+})
+
 .controller('DetailsCtrl', function($scope,details) {
   $scope.data=details;
   console.log($scope.data);
