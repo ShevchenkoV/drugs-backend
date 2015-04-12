@@ -33,7 +33,7 @@ router.get('/', function(req, res) {
 
 router.route('/analog/:analog')
   .get(function(req, res) {
-    Drugs.find({analog:req.params.analog},function(err, drugs) {
+    Drugs.find({analog:req.params.analog}).exec(function(err, drugs) {
       if (err){
         res.send(err);
       }
