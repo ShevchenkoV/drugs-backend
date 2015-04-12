@@ -31,9 +31,9 @@ router.get('/', function(req, res) {
   res.json({ message: 'hooray! welcome to our api!' });
 });
 
-router.route('/drugs')
+router.route('/drugs/:analog')
   .get(function(req, res) {
-    Drugs.find(function(err, drugs) {
+    Drugs.find({analog:req.param.analog},function(err, drugs) {
       if (err){
         res.send(err);
       }
