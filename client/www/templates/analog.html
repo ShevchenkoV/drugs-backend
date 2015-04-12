@@ -17,22 +17,23 @@
     <p>
       Цены: {{item.min}}-{{item.max}}
     </p>
+    <div class="item tabs tabs-secondary tabs-icon-left">
+      <a class="tab-item" href="#/analog/{{item.analog}}">
+        <i class="icon ion-aperture"></i>
+        Аналоги
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-map"></i>
+        Карта
+      </a>
+      <a class="tab-item" href="#">
+        <i class="icon ion-share"></i>
+        Share
+      </a>
+    </div>
   </div>
 
-  <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#/analog/{{data.analog}}">
-      <i class="icon ion-aperture"></i>
-      Аналоги
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-map"></i>
-      Карта
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-share"></i>
-      Share
-    </a>
-  </div>
+
 
 </div>
 </ion-content>
