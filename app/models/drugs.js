@@ -8,8 +8,8 @@ var DrugsSchema   = new Schema({
   "ats4": String,
   "ats": String,
   "group": String,
-  "analog": String,
-  "code": String,
+  "analog": Number,
+  "code": Number,
   "min": String,
   "max": String
 });
