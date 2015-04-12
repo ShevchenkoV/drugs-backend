@@ -13,7 +13,7 @@ angular.module('drugs.services', [])
 			return promise;
 		},
 		searchAnalogs : function(code){
-			var promise=$http.get('https://intense-brushlands-2141.herokuapp.com/api/find/'+encodeURI(code))
+			var promise=$http.get('https://intense-brushlands-2141.herokuapp.com/api/drugs/'+encodeURI(code))
 			.then(function(response){
 				return response.data;
 			})
