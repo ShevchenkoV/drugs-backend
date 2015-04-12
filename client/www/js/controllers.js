@@ -23,13 +23,8 @@ angular.module('drugs.controllers', ['drugs.services'])
     queryType:true
   };
   $scope.search=function(){
-    if($scope.data.queryType){
-      SearchDataService.searchByName($scope.data.search,'name').then(function(result){
-        $scope.data.results=result;
-      });
-    }
-    else{
-      SearchDataService.searchByName($scope.data.search,'ats').then(function(result){
+    if(typeof $scope.data.queryType !== 'undefined'){
+      SearchDataService.searchByName($scope.data.search,$scope.data.queryType?'name':'ats').then(function(result){
         $scope.data.results=result;
       });
     }
