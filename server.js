@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var mongoose   = require('mongoose');
 var Drugs     = require('./app/models/drugs');
 
-mongoose.connect('mongodb://drugs:drugs@ds039251.mongolab.com:39251/drugs'); // connect to our database
+mongoose.connect(process.env.mongo||''); // connect to our database
 
 // configure app to use bodyParser()
 // this will let us get the data from a POST
