@@ -1,4 +1,4 @@
-angular.module('drugs.controllers', ['drugs.services'])
+angular.module('drugs.controllers', ['drugs.services','ngCordova'])
 
 .controller('AppCtrl', function() {
 
@@ -16,18 +16,27 @@ angular.module('drugs.controllers', ['drugs.services'])
 .controller('FavoritCtrl', function($scope, $stateParams) {
 })
 
-.controller('SearchCtrl', function($scope,$state,SearchDataService,DetailsService){
+.controller('SearchCtrl', function($scope,$state,$cordovaToast,SearchDataService,DetailsService){
   $scope.data={
     results:"",
     search:"",
     queryType:true
   };
   $scope.search=function(){
-    if(typeof $scope.data.queryType !== 'undefined'){
-      SearchDataService.searchByName($scope.data.search,$scope.data.queryType?'name':'ats').then(function(result){
+    if(typeof $scope.data.queryType !== 'undefined'
+    && $scope.data.search.length>3){
+      SearchDataService.searchByName($scope.data.search,$scope.data.queryType?'name':'ats')
+      .then(function(result){
         $scope.data.results=result;
       });
     }
+  }
+  $scope.typeChange=function(){
+    $cordovaToast.showShortCenter( $scope.data.queryType ?
+      'Поиск по названию' : 'Поиск по активному веществу')
+      .then(function(){
+      $scope.search();
+    });
   }
 
   $scope.details=function(item){
