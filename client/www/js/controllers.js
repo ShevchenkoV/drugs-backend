@@ -40,6 +40,7 @@ angular.module('drugs.controllers', ['drugs.services','ngCordova'])
   }
 
   $scope.details=function(item){
+    //goto details
     console.log(item);
     DetailsService.save(item);
     $state.go('app.details');
