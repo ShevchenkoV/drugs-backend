@@ -24,11 +24,12 @@ angular.module('drugs.services', [])
 
 })
 
-.service('DetailsService', function(){
+.service('DetailsService', function($localstorage){
 	return{
 		data:[],
 		save:function(item){
 			this.data=item;
+			$localstorage.set('lastSearch',item);
 		},
 		get:function(){
 			return this.data;
@@ -51,3 +52,4 @@ angular.module('drugs.services', [])
       return JSON.parse($window.localStorage[key] || '{}');
     }
   }
+}]);
