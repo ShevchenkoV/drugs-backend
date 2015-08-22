@@ -10,8 +10,8 @@ var DrugsSchema   = new Schema({
   "group": String,
   "analog": Number,
   "code": Number,
-  "min": String,
-  "max": String
+  "min": Number,
+  "max": Number
 });
 
 module.exports = mongoose.model('Drugs', DrugsSchema);

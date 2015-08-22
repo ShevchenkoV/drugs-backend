@@ -2,13 +2,20 @@
 angular.module('drugs.services', [])
 
 .service('SearchDataService', function($http,$q) {
+	function normalize(element, index, array) {
+	  element.min=parseFloat(element.min.replace(",", "."));
+		element.max=parseFloat(element.max.replace(",", "."));
+	}
 	return {
 		searchAnalogs : function(code){
-			var promise=$http.get('https://intense-brushlands-2141.herokuapp.com/api/analog/'+encodeURI(code))
+			var deffered = $q.defer();
+			$http.get('https://intense-brushlands-2141.herokuapp.com/api/analog/'+encodeURI(code))
 			.then(function(response){
-				return response.data;
+				response.data.forEach(normalize);
+				deffered.resolve(response.data);
+				console.log(response.data);
 			})
-			return promise;
+			return deffered.promise;
 		}
 	}
 
