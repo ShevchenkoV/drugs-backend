@@ -74,6 +74,32 @@ angular.module('drugs.controllers', ['drugs.services','ngCordova'])
 .controller('DetailsCtrl', function($scope,details) {
   $scope.data=details;
 })
+.controller('BrowseCtrl', function($scope) {
+  $scope.data=[{
+    img: 'img/ionic.png',
+    text: '"Нижфарм" со скидкой 15%. Мази Гепариновая и Проктозан от компании "Нижфарм" со скидкой 15% ',
+    header: 'Аптеки Низких Цен',
+    date: '07 Авг 2015'
+  },
+  {
+    img: 'img/ionic.png',
+    text: '"Трексил Нео" -10%. Защищает от аллергии и стоит на 10% дешевле — "Трексил Нео" в "Аптеке низких цен"',
+    header: 'Аптеки Низких Цен',
+    date: '19 Июл 2015'
+  },
+  {
+    img: 'img/ionic.png',
+    text: 'Lacalut ("Лакалут") -20%. Скидки 20% на весь ряд зубной пасты Lacalut ("Лакалут") в мае-июне 2015',
+    header: 'Аптеки Низких Цен',
+    date: '02 Июл 2015'
+  },
+  {
+    img: 'img/ionic.png',
+    text: 'Детское питание "Нан" в "Аптеке низких цен" со скидкой 50% на вторую единицу в чеке ',
+    header: 'Аптеки Низких Цен',
+    date: '02 Июн 2015'
+  },];
+})
 
 .controller("MapCtrl", function($scope) {
 

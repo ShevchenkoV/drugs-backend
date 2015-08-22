@@ -1,12 +1,31 @@
-<ion-view view-title="Извещения">
-  <ion-content>
-    <div class="list">
+<ion-view view-title="Акции">
+  <ion-content class="has-header" overflow-scroll="true">
+    <div class="list card" ng-repeat="i in data">
 
-        <a class="item item-thumbnail-left" href="#" ng-repeat="i in [0,1,2,3,4]">
-          <img src="img/ionic.png">
-          <h2>Акция от...</h2>
-          <p>Краткое описание...</p>
+      <div class="item item-avatar">
+        <img ng-src={{i.img}}>
+        <h2>{{i.header}}</h2>
+        <p>{{i.date}}</p>
+      </div>
+
+      <div class="item item-body">
+        <p style="text-indent: 10px;">{{i.text}}</p>
+      </div>
+
+      <div class="item tabs tabs-secondary tabs-icon-left">
+        <a class="tab-item" href="#">
+          <i class="icon ion-thumbsup"></i>
+          Like
         </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-chatbox"></i>
+          Comment
+        </a>
+        <a class="tab-item" href="#">
+          <i class="icon ion-share"></i>
+          Share
+        </a>
+      </div>
 
     </div>
   </ion-content>

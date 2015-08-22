@@ -67,7 +67,8 @@ angular.module('drugs', ['ionic', 'drugs.controllers','leaflet-directive'])
     url: "/browse",
     views: {
       'menuContent': {
-        templateUrl: "templates/browse.html"
+        templateUrl: "templates/browse.html",
+        controller: 'BrowseCtrl'
       }
     }
   })
