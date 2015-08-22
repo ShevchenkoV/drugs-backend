@@ -3,19 +3,19 @@
   <div class="list card">
   <div class="item item-body">
     <h2>
-      {{data.name}}
+      {{::data.name}}
     </h2>
     <p>
-      Группа: {{data.ats4}}
+      Группа: {{::data.ats4}}
     </p>
     <p>
-      Страна: {{data.country}}
+      Страна: {{::data.country}}
     </p>
     <p>
-      Производитель: {{data.origin}}
+      Производитель: {{::data.origin}}
     </p>
     <p>
-      Цены: {{data.min}}-{{data.max}}
+      Цены: {{::data.min}}-{{::data.max}}
     </p>
   </div>
 
@@ -24,7 +24,7 @@
       <i class="icon ion-aperture"></i>
       Аналоги
     </a>
-    <a class="tab-item" href="#">
+    <a class="tab-item" ui-sref="app.map">
       <i class="icon ion-map"></i>
       Карта
     </a>

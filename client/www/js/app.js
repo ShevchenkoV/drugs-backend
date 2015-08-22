@@ -1,5 +1,5 @@
 
-angular.module('drugs', ['ionic', 'drugs.controllers'])
+angular.module('drugs', ['ionic', 'drugs.controllers','leaflet-directive'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -15,8 +15,8 @@ angular.module('drugs', ['ionic', 'drugs.controllers'])
 })
 
 .config(function($stateProvider, $urlRouterProvider) {
-  $stateProvider
 
+  $stateProvider
   .state('app', {
     url: "/app",
     abstract: true,
@@ -68,6 +68,15 @@ angular.module('drugs', ['ionic', 'drugs.controllers'])
     views: {
       'menuContent': {
         templateUrl: "templates/browse.html"
+      }
+    }
+  })
+  .state('app.map', {
+    url: "/map",
+    views: {
+      'menuContent': {
+        controller: 'MapCtrl',
+        templateUrl: "templates/map.html"
       }
     }
   })

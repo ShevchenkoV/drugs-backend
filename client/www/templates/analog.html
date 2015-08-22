@@ -1,39 +1,26 @@
 <ion-view view-title="Аналоги">
 <ion-content>
-  <div class="list card">
-  <div class="item item-body" ng-repeat="item in data">
-    <h2>
-      {{item.name}}
-    </h2>
-    <p>
-      Группа: {{item.ats4}}
-    </p>
-    <p>
-      Страна: {{item.country}}
-    </p>
-    <p>
-      Производитель: {{item.origin}}
-    </p>
-    <p>
-      Цены: {{item.min}}-{{item.max}}
-    </p>
-  </div>
-
-  <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item" href="#/analog/{{data.analog}}">
-      <i class="icon ion-aperture"></i>
-      Аналоги
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-map"></i>
-      Карта
-    </a>
-    <a class="tab-item" href="#">
-      <i class="icon ion-share"></i>
-      Share
-    </a>
-  </div>
-
-</div>
+  <ion-list can-swipe="true">
+    <ion-item  collection-repeat="item in data | orderBy:'item.min'" >
+      <h2>
+        {{item.name}}
+      </h2>
+      <p>
+        Группа: {{item.ats4}}
+      </p>
+      <p>
+        Страна: {{item.country}}
+      </p>
+      <p>
+        Производитель: {{item.origin}}
+      </p>
+      <p>
+        Цены: {{item.min}}-{{item.max}}
+      </p>
+      <ion-option-button class="button-balanced" ui-sref="app.map">
+        Карта
+      </ion-option-button>
+    </ion-item>
+  </ion-list>
 </ion-content>
 </ion-view>
